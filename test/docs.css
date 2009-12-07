@@ -1,0 +1,39 @@
+body {margin:0}
+h1,h2,h3,h4 {font-family:Verdana,sans-serif; border-bottom:1px solid black; margin:0; margin-bottom:0.5em}
+a:link,a:visited {background-color:#ff9; color:black; outline:none}
+a:visited {background-color:#ffd; color:#333}
+a:hover,a:active {background-color:#ff3}
+a[target=external] {border:1px dotted #cc3}
+p {margin-top:0; margin-bottom:1.2em}
+h1 {font-size:120%; padding:0.2em 0.5em; background-color:#666; color:#ccc}
+h1 code {color:#ccc}
+h2,h3,h4 {font-size:110%; border-bottom-color:#999; margin-top:2em}
+h3,h4 {font-size:100%; color:#333}
+#pagecontent {margin:2em}
+ul {margin-top:0}
+li {margin-bottom:0.6em}
+p.overview {font-size:larger; font-style:italic}
+.contentfollows {margin-bottom:0}
+.contentbefore {margin-top:0}
+code {font-size:100%; font-family:Courier,'Courier New',monospace; color:#060}
+h2 code {font-size:110%}
+pre code {font-size:100%}
+pre {margin:0 0 1em 2em}
+code .keyword {color:#00c}
+code .paren {color:#900; font-weight:bold}
+code .number {color:black}
+code .string,
+code .string .keyword,
+code .string .paren,
+code .string .string,
+code .string .number {color:#949; font-weight:normal}
+code .comment,
+code .comment .keyword,
+code .comment .paren,
+code .comment .string,
+code .comment .number {color:#999; font-weight:normal}
+code.block {display:block; white-space:pre; margin:1em}
+p.byline {font-size:80%; padding:0.2em 0; margin:1em 2.4em; font-style:italic; border-top:1px solid #ccc; color:#666}
+.ancillary {color:#666; font-size:90%; font-style:italic}
+button {display:inline}
+#overview {font-style:italic}

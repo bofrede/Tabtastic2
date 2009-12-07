@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
+	<title>Tabtastic</title>
+	<script type="text/javascript" src="http://phrogz.net/common/addclasskillclass.js"></script>
+	<script type="text/javascript" src="http://phrogz.net/common/attachevent.js"></script>
+	<script type="text/javascript" src="http://phrogz.net/common/addcss.js"></script>
+	<script type="text/javascript" src="tabtastic.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="http://phrogz.net/JS/Classes/docs.css">
+	<style type="text/css">
+		/* These styles are for the documentation only */
+		body	{ font-family:'Trebuchet MS',serif; background-color:#eee }
+		#ver	{ color:#999; font-size:70%; padding-left:2em }
+		p	{ margin:0.7em 0 }
+		code	{ white-space:nowrap }
+		pre code	{ white-space:pre }
+
+		.tabset_content a:link,
+		.tabset_content a:visited	{ background-color:white }
+		.tabset_content a:link	{ color:#039 }
+		.tabset_content a:visited	{ text-decoration:none; color:#026 }
+		.tabset_content a:hover	{ background-color:#ffc }
+		
+	</style>
+
+</head>
+<body>
+<h1>Tabtastic <span id="ver">v1.0.4 2004-May-21</span></h1>
+
+
+<div id="pagecontent">
+
+<h2 class="tabset_label">Table of Contents</h2>
+<ul class="tabset_tabs">
+	<li><a href="#overview" class="active">Overview</a></li><li><a href="#requirements">Requirements</a></li><li><a href="#stepbystep">Step By Step</a></li><li><a href="#notes">Notes</a></li>
+</ul>
+
+
+<div id="overview" class="tabset_content">
+	<h2 class="tabset_label">Overview</h2>
+	<p>This library is a simple way to implement tabs on your page using CSS, a little JS, and semantic markup which degrades gracefully on browsers with CSS unavailable or disabled.</p>
+	<p>Not only is it easy to use and accessible for screen-readers, but it supports multiple (nested, even) tabsets on the same page and allows users to bookmark the page loading to a specific tab.</p>
+
+	<p>Here's some sample markup:</p>
+	<pre><code>
+&lt;ul class="tabset_tabs"&gt;
+   &lt;li&gt;&lt;a href="#tab1" class="active"&gt;Tab 1&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href="#tab2"&gt;Tab 2&lt;/a&gt;&lt;/li&gt;
+   &lt;li&gt;&lt;a href="#tab3"&gt;Tab 3&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div id="tab1" class="tabset_content"&gt;
+   &lt;h2 class="tabset_label"&gt;Tab 1&lt;/h2&gt;
+   Tab 1 Content
+&lt;/div&gt;
+
+&lt;div id="tab2" class="tabset_content"&gt;
+   &lt;h2 class="tabset_label"&gt;Tab 2&lt;/h2&gt;
+   Tab 2 Content
+&lt;/div&gt;
+
+&lt;div id="tab3" class="tabset_content"&gt;
+   &lt;h2 class="tabset_label"&gt;Tab 3&lt;/h2&gt;
+   Tab 3 Content
+&lt;/div&gt;
+	</code></pre>
+
+	<p>It's that easy! (As long as you include the files listed in the <a href="#requirements">Requirements</a> section.)</p>
+</div>
+
+	
+<div id="requirements" class="tabset_content">
+	<h2 class="tabset_label">Requirements</h2>
+	<p>This library has been tested to work with Safari 1.2, IE 5.5, Mozilla 1.4, Netscape 7, and Firefox 0.8. It works almost perfectly in Mozilla 0.9 and NS6, and degrades gracefully in IE5Mac and Opera. It should work with any modern, standards-compliant browser. (IE5Mac and Opera7 support are possible; read the last bullet in the <a href="#notes">Notes</a> section.)</p>
+	<p>In addition to markup as shown in the <a href="#overview">Overview</a>, you need to include some other files for this to work automagically.</p>
+	
+	<p>Specifically, you need to copy one CSS file (<a href="tabtastic.css">tabtastic.css</a>), one JS file (<a href="tabtastic.js">tabtastic.js</a>), and three JS library files (<a href="http://phrogz.net/common/attachevent.js">AttachEvent.js</a>, <a href="http://phrogz.net/common/addclasskillclass.js">AddClassKillClass.js</a>, <a href="http://phrogz.net/common/AddCSS.js">AddCSS.js</a>).</p>
+	<p>The head of your HTML page should look something like this:</p>
+	
+<pre><code>&lt;script type="text/javascript" src="addclasskillclass.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="attachevent.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="addcss.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="tabtastic.js"&gt;&lt;/script&gt;</code></pre>
+	
+	<p>For step-by-step instructions, see <a href="#stepbystep">Step By Step</a>.</p>
+</div>
+	
+<div id="stepbystep" class="tabset_content">
+	<h2 class="tabset_label">Step-by-Step</h2>
+	<p>Step-by-step instructions for building your own tabset:</p>
+	<ol>
+		<li>Copy the five files listed in the <a href="#requirements">Requirements</a> section to your server.</li>
+
+		<li>Assuming the files you copied are in the same directory as the HTML file you're putting the tabs in, put this code in the <code>&lt;head&gt;</code> of your document:
+<pre><code>&lt;script type="text/javascript" src="addclasskillclass.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="attachevent.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="addcss.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="tabtastic.js"&gt;&lt;/script&gt;</code></pre></li>
+
+		<li>Create a <code>&lt;ul&gt;</code> with <code>class="tabset_tabs"</code>. For each tab, create code like this:
+		<pre><code>&lt;li&gt;&lt;a href="#tabid"&gt;Tab Title&lt;/a&gt;&lt;/li&gt;</code></pre></li>
+
+		<li>(optional) If you want one tab to start out as the 'active' tab, put <code>class="active"</code> in the <code>&lt;a&gt;</code> for that tab.</li>
+
+		<li>For each tab, create content like this:
+<pre><code>&lt;div id="tabid" class="tabset_content"&gt;
+   &lt;h2 class="tabset_label"&gt;Tab Title&lt;/h2&gt;
+   ...
+&lt;/div&gt;</code></pre>
+	<p>(The <code>&lt;h2&gt;</code> will not display, but is important for accessibility.)</p></li>
+
+		<li>(optional) Add your own additional custom CSS rules to change the colors which are used. (See <a href="#notes">Notes</a>.)</li>
+	</ol>
+</div>
+
+
+
+<div id="notes" class="tabset_content">
+	<h2 class="tabset_label">Notes</h2>
+	<p>A few random tips and limitations:</p>
+	<ul>
+		<li>The only bug present in NS6/Mozilla 1.2 (and earlier) is that the selected tab does not overlap the content, causing there to be a black line drawn between the selected tab and the content.</li>
+		<li>There should be no whitespace (other than in tab titles) within your <code>&lt;ul class="tabset_tabs"&gt;...&lt;/ul&gt;</code>, if you want your tabs to mash up against each other (as they do in this document).</li>
+		<li>The following CSS selectors will give you control over the styling of the content:
+		<pre><code>.tabset_tabs a             { /* A normal tab                             */ }
+.tabset_tabs a:hover       { /* A normal tab, when hovered over          */ }
+.tabset_tabs a.active      { /* The selected tab                         */ }
+.tabset_tabs a.preActive   { /* The tab to the left of the selected tab  */ }
+.tabset_tabs a.postActive  { /* The tab to the right of the selected tab */ }
+.tabset_content            { /* The selected tab's contents              */ }</code></pre>
+Note that you may need to use the <code>! important</code> rule to force your styles to take effect.
+</li>
+		<li>Google's translation service does not seem to play nicely with the library; none of the content shows up, only the tabs themselves. For example, see <a href="http://translate.google.com/translate?sourceid=navclient-menuext&hl=en&u=http%3A%2F%2Fphrogz%2Enet%2FJS%2FTabtastic%2Findex%2Ehtml%23overview">this document translated</a>.</li>
+		<li>It's easy to make the content areas of each tab have scrollbars. Simply add a CSS rule like this <code>.tabset_content { height:20em; overflow:auto }</code> and scrollbars will appear as needed!</li>
+		<li>
+			<p>This library uses JS to include the CSS file, so that the content is NOT hidden/inaccessible if the user has JS disabled.</p>
+			<p>Unfortunately, this breaks IE5Mac and Opera7. If you need support for them (at the expense of users who have CSS supported but JS disabled), comment out <code>AddStyleSheet('tabtastic.css',0)</code> at the end of tabtastic.js, and link in the CSS file yourself.</p>
+		</li>
+	</ul>
+</div>
+
+
+</div>
+<p class="byline" id="copyright">Copyright &copy;2004 <a href="mailto:gavi%6e@&#114;%65finery.c&#111;m">Gavin Kistner</a>, all rights reserved &mdash; reuse or modification subject to the <a href="http://phrogz.net/js/_ReuseLicense.txt">Reuse License</a>.<br>Comments/suggestions/flames welcome.</p>
+
+</body>
+</html>
